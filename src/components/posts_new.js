@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
-class PostsNew extends Component {
+export default class PostsNew extends Component {
   render() {
     return (
-      <form>
-        <input>Title</input>
-        <input>Categories</input>
-        <input>Contents</input>
-        <button>Save</button>
-        <button>Cancel</button>
-      </form>
+      <div>
+        VAMO LA!
+{/*        <form>
+          <input>Title</input>
+          <input>Categories</input>
+          <input>Contents</input>
+          <button>Save</button>
+          <button>Cancel</button>
+        </form>*/}
+      </div>
     );
   }
 }
 
-export default connect(null)(PostsNew);
+// export default connect(null)(PostsNew);
