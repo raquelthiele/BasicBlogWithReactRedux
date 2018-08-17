@@ -5,7 +5,7 @@ class PostsNew extends Component {
   renderField(field) {
     return (
       <div className="form-group">
-        <label>Title</label>
+        <label>{field.label}</label>
         <input
           className="form-control"
           type="text"
@@ -16,10 +16,17 @@ class PostsNew extends Component {
     );
   }
 
+  onSubmit(values) {
+    console.log(values);
+  }
+
   render() {
+    const { handleSubmit } = this.props;
+
     return (
       <div>
-        <form>
+        {/*after redux form checks state and values, the onSubmit its called*/}
+        <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <Field
             label="Title"
             name="title"
@@ -36,7 +43,7 @@ class PostsNew extends Component {
             component={this.renderField}
           />
 
-          <button>Save</button>
+          <button type="submit" className="btn btn-primary">Save</button>
           <button>Cancel</button>
         </form>
       </div>
