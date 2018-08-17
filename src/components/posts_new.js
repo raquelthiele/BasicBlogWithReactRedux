@@ -1,21 +1,41 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
+import  { Field, reduxForm } from 'redux-form';
 
-export default class PostsNew extends Component {
+class PostsNew extends Component {
+  renderTitleField(field) {
+    return (
+      <div>
+        <input
+          type="text"
+          {...field.input}
+        />
+      </div>
+    );
+  }
+
   render() {
     return (
       <div>
-        VAMO LA!
-{/*        <form>
-          <input>Title</input>
-          <input>Categories</input>
-          <input>Contents</input>
+        <form>
+          <Field
+            name="title"
+            component={this.renderTitleField}
+          />
+{/*          <Field
+            name="categories"
+          />
+          <Field
+            name="content"
+          />*/}
+
           <button>Save</button>
           <button>Cancel</button>
-        </form>*/}
+        </form>
       </div>
     );
   }
 }
 
-// export default connect(null)(PostsNew);
+export default reduxForm({
+  form: 'PostsNewForm'    //this string has to be unique
+})(PostsNew);
